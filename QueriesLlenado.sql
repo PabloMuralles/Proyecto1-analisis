@@ -1,6 +1,7 @@
 --Queries para llenar datos
 
 --Dimensiones
+
 	--DimCliente
 	select C.ID_Cliente,
 			C.PrimerNombre,
@@ -59,11 +60,11 @@
 	--DimPartes
 	SELECT P.ID_Parte,
 			L.ID_Linea, C.ID_Categoria, 
-			P.Nombre, P.Descripcion, 
-			P.Precio, C.Nombre, 
-			C.Descripcion, 
-			L.Nombre, 
-			L.Descripcion
+			P.Nombre as NombreParte, P.Descripcion as DescripcionParte, 
+			P.Precio, C.Nombre as NombreCategoria, 
+			C.Descripcion as DescripcionCategoria, 
+			L.Nombre as NombreLinea, 
+			L.Descripcion as DescripcionLinea
 			--Columnas Auditoria
 			,GETDATE() AS FechaCreacion
 			,CAST(SUSER_NAME() AS nvarchar(100)) AS UsuarioCreacion

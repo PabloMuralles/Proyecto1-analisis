@@ -2,47 +2,91 @@
 -----------------------CORRER CREATE de USP_FillDimDate PRIMERO!!!--------------------------
 --------------------------------------------------------------------------------------------
 
-	DECLARE @FechaMaxima DATETIME=DATEADD(YEAR,2,GETDATE())
-	--Fecha
-	IF ISNULL((SELECT MAX(Date) FROM Dimension.Fecha),'1900-01-01')<@FechaMaxima
-	begin
-		EXEC USP_FillDimDate @CurrentDate = '2016-01-01', 
-							 @EndDate     = @FechaMaxima
-	end
-	SELECT * FROM Dimension.Fecha
-	
-	--Fact
-	INSERT INTO [Fact].[Examen]
-	([SK_Candidato], 
-	 [SK_Carrera], 
-	 [DateKey], 
-	 [ID_Examen], 
-	 [ID_Descuento], 	
-	 [DescripcionDescuento], 
-	 [PorcentajeDescuento], 
-	 [Precio], 
-	 [NotaTotal], 
-	 [NotaArea], 
-	 [NombreMateria]
-	)
-	SELECT  --Columnas de mis dimensiones en DWH
-			SK_Candidato, 
-			SK_Carrera, 
-			F.DateKey, 
-			R.ID_Examen, 
-			R.ID_Descuento, 			
-			D.Descripcion, 
-			D.PorcentajeDescuento, 
-			R.Precio, 
-			R.Nota,
-			RR.NotaArea, 
-			EA.NombreMateria
-				 
-	FROM Admisiones.DBO.Examen R
-		INNER JOIN Admisiones.DBO.Examen_Detalle RR ON(R.ID_Examen = RR.ID_Examen)
-		INNER JOIN Admisiones.DBO.Materia EA ON(EA.ID_Materia = RR.ID_Materia)
-		INNER JOIN Admisiones.DBO.Descuento D ON(D.ID_Descuento = R.ID_Descuento)
-		--Referencias a DWH
-		INNER JOIN Dimension.Candidato C ON(C.ID_Candidato = R.ID_Candidato)
-		INNER JOIN Dimension.Carrera CA ON(CA.ID_Carrera = R.ID_Carrera)
-		INNER JOIN Dimension.Fecha F ON(CAST((CAST(YEAR(R.FechaPrueba) AS VARCHAR(4)))+left('0'+CAST(MONTH(R.FechaPrueba) AS VARCHAR(4)),2)+left('0'+(CAST(DAY(R.FechaPrueba) AS VARCHAR(4))),2) AS INT)  = F.DateKey);
+use RepuestosWeb_DWH
+go
+
+CREATE PROCEDURE USP_FillDimDate @CurrentDate DATE = '2016-01-01', 
+                                 @EndDate     DATE = '2022-12-31'
+AS
+    BEGIN
+        SET NOCOUNT ON;
+        DELETE FROM Dimension.Fecha;
+
+        WHILE @CurrentDate < @EndDate
+            BEGIN
+                INSERT INTO Dimension.Fecha
+                ([DateKey], 
+                 [Date], 
+                 [Day], 
+                 [DaySuffix], 
+                 [Weekday], 
+                 [WeekDayName], 
+                 [WeekDayName_Short], 
+                 [WeekDayName_FirstLetter], 
+                 [DOWInMonth], 
+                 [DayOfYear], 
+                 [WeekOfMonth], 
+                 [WeekOfYear], 
+                 [Month], 
+                 [MonthName], 
+                 [MonthName_Short], 
+                 [MonthName_FirstLetter], 
+                 [Quarter], 
+                 [QuarterName], 
+                 [Year], 
+                 [MMYYYY], 
+                 [MonthYear], 
+                 [IsWeekend]
+                )
+                       SELECT DateKey = YEAR(@CurrentDate) * 10000 + MONTH(@CurrentDate) * 100 + DAY(@CurrentDate), 
+                              DATE = @CurrentDate, 
+                              Day = DAY(@CurrentDate), 
+                              [DaySuffix] = CASE
+                                                WHEN DAY(@CurrentDate) = 1
+                                                     OR DAY(@CurrentDate) = 21
+                                                     OR DAY(@CurrentDate) = 31
+                                                THEN 'st'
+                                                WHEN DAY(@CurrentDate) = 2
+                                                     OR DAY(@CurrentDate) = 22
+                                                THEN 'nd'
+                                                WHEN DAY(@CurrentDate) = 3
+                                                     OR DAY(@CurrentDate) = 23
+                                                THEN 'rd'
+                                                ELSE 'th'
+                                            END, 
+                              WEEKDAY = DATEPART(dw, @CurrentDate), 
+                              WeekDayName = DATENAME(dw, @CurrentDate), 
+                              WeekDayName_Short = UPPER(LEFT(DATENAME(dw, @CurrentDate), 3)), 
+                              WeekDayName_FirstLetter = LEFT(DATENAME(dw, @CurrentDate), 1), 
+                              [DOWInMonth] = DAY(@CurrentDate), 
+                              [DayOfYear] = DATENAME(dy, @CurrentDate), 
+                              [WeekOfMonth] = DATEPART(WEEK, @CurrentDate) - DATEPART(WEEK, DATEADD(MM, DATEDIFF(MM, 0, @CurrentDate), 0)) + 1, 
+                              [WeekOfYear] = DATEPART(wk, @CurrentDate), 
+                              [Month] = MONTH(@CurrentDate), 
+                              [MonthName] = DATENAME(mm, @CurrentDate), 
+                              [MonthName_Short] = UPPER(LEFT(DATENAME(mm, @CurrentDate), 3)), 
+                              [MonthName_FirstLetter] = LEFT(DATENAME(mm, @CurrentDate), 1), 
+                              [Quarter] = DATEPART(q, @CurrentDate), 
+                              [QuarterName] = CASE
+                                                  WHEN DATENAME(qq, @CurrentDate) = 1
+                                                  THEN 'First'
+                                                  WHEN DATENAME(qq, @CurrentDate) = 2
+                                                  THEN 'second'
+                                                  WHEN DATENAME(qq, @CurrentDate) = 3
+                                                  THEN 'third'
+                                                  WHEN DATENAME(qq, @CurrentDate) = 4
+                                                  THEN 'fourth'
+                                              END, 
+                              [Year] = YEAR(@CurrentDate), 
+                              [MMYYYY] = RIGHT('0' + CAST(MONTH(@CurrentDate) AS VARCHAR(2)), 2) + CAST(YEAR(@CurrentDate) AS VARCHAR(4)), 
+                              [MonthYear] = CAST(YEAR(@CurrentDate) AS VARCHAR(4)) + UPPER(LEFT(DATENAME(mm, @CurrentDate), 3)), 
+                              [IsWeekend] = CASE
+                                                WHEN DATENAME(dw, @CurrentDate) = 'Sunday'
+                                                     OR DATENAME(dw, @CurrentDate) = 'Saturday'
+                                                THEN 1
+                                                ELSE 0
+                                            END     ;
+                SET @CurrentDate = DATEADD(DD, 1, @CurrentDate);
+            END;
+    END;
+go
