@@ -93,3 +93,88 @@
 				,CAST('2020-01-01' AS DATETIME) as FechaInicioValidez
 		 FROM dbo.Descuento
 
+		 --DimCotizacion
+		 SELECT c.IDCotizacion
+				  ,c.[status]
+				  ,c.TipoDocumento
+				  ,c.FechaCreacion
+				  ,c.FechaModificacion
+				  ,c.ProcesadoPor
+				  ,c.IDAseguradora
+				  ,c.AseguradoraSubsidiaria
+				  ,c.NumeroReclamo
+				  ,c.IDPlantaReparacion
+				  ,c.OrdenRealizada
+				  ,c.CotizacionRealizada
+				  ,c.CotizacionDuplicada
+				  ,c.procurementFolderID
+				  ,c.DireccionEntrega1
+				  ,c.DireccionEntrega2
+				  ,c.MarcadoEntrega
+				  ,c.IDPartner
+				  ,c.CodigoPostal
+				  ,c.LeidoPorPlantaReparacion
+				  ,c.LeidoPorPlantaReparacionFecha
+				  ,c.CotizacionReabierta
+				  ,c.EsAseguradora
+				  ,c.CodigoVerificacion
+				  ,c.IDClientePlantaReparacion
+				  ,c.FechaCreacionRegistro
+				  ,c.IDRecotizacion
+				  ,c.PartnerConfirmado
+				  ,c.WrittenBy
+				  ,c.SeguroValidado
+				  ,c.FechaCaptura
+				  ,c.IDOrden
+				  ,c.Ruta
+				  ,c.FechaLimiteRuta
+				  ,c.TelefonoEntrega
+				  ,pr.CompanyNombre
+				  ,pr.Direccion
+				  ,pr.Direccion2
+				  ,pr.Ciudad
+				  ,pr.Estado
+				  ,pr.CodigoPostal
+				  ,pr.Pais
+				  ,pr.TelefonoAlmacen
+				  ,pr.FaxAlmacen
+				  ,pr.CorreoContacto
+				  ,pr.NombreContacto
+				  ,pr.TelefonoContacto
+				  ,pr.TituloTrabajo
+				  ,pr.AlmacenKeystone
+				  ,pr.IDPredio
+				  ,pr.LocalizadorCotizacion
+				  ,pr.FechaAgregado
+				  ,pr.IDEmpresa
+				  ,pr.ValidacionSeguro
+				  ,pr.Activo
+				  ,pr.CreadoPor
+				  ,pr.ActualizadoPor
+				  ,pr.UltimaFechaActualizacion
+				  ,a.IDAseguradora
+				  ,a.NombreAseguradora
+				  ,a.RowCreatedDate
+				  ,a.Activa
+				  ,cd.NumLinea
+				  ,cd.ID_Parte
+				  ,cd.OETipoParte
+				  ,cd.AltPartNum
+				  ,cd.AltTipoParte
+				  ,cd.ciecaTipoParte
+				  ,cd.partDescripcion
+				  ,cd.Cantidad
+				  ,cd.PrecioListaOnRO
+				  ,cd.PrecioNetoOnRO
+				  ,cd.NecesitadoParaFecha
+				  ,cd.VehiculoID
+				  --Columnas Auditoria
+				,GETDATE() AS FechaCreacion
+				,CAST(SUSER_NAME() AS nvarchar(100)) AS UsuarioCreacion
+				,GETDATE() AS FechaModificacion
+				,CAST(SUSER_NAME() AS nvarchar(100)) AS UsuarioModificacion
+				,CAST('2020-01-01' AS DATETIME) as FechaInicioValidez
+			FROM dbo.Cotizacion c inner join dbo.CotizacionDetalle cd on (c.IDCotizacion = cd.IDCotizacion)
+			  inner join dbo.PlantaReparacion pr on (c.IDPlantaReparacion = pr.IDPlantaReparacion)
+			  inner join dbo.Aseguradoras a on (c.IDAseguradora = a.IDAseguradora)
+
