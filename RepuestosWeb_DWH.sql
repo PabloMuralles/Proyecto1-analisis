@@ -340,8 +340,8 @@ GO
 	alter table Dimension.Cotizacion add IDAseguradora [UDT_PK]--FK
 	alter table Dimension.Cotizacion add AseguradoraSubsidiaria [UDT_VarcharMediano]--80
 	alter table Dimension.Cotizacion add NumeroReclamo [UDT_VarcharCorto]
-	alter table Dimension.Cotizacion add IDPlantaReparacion [UDT_PK]--fk
-	alter table Dimension.Cotizacion add OrdenRealizada [UDT_VarcharMediano]--80
+	alter table Dimension.Cotizacion add IDPlantaReparacion [UDT_SPK]--fk
+	alter table Dimension.Cotizacion add OrdenRealizada [UDT_BIT]--80
 	alter table Dimension.Cotizacion add CotizacionRealizada [UDT_BIT]
 	alter table Dimension.Cotizacion add CotizacionDuplicada [UDT_BIT]
 	alter table Dimension.Cotizacion add procurementFolderID [UDT_VarcharCorto]
@@ -366,8 +366,8 @@ GO
 	alter table Dimension.Cotizacion add Ruta varchar(500)--varchar-500
 	alter table Dimension.Cotizacion add FechaLimiteRuta [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add TelefonoEntrega [UDT_VarcharCorto]
-	alter table Dimension.Cotizacion add NumLinea [UDT_PK]
-	alter table Dimension.Cotizacion add ID_Parte [UDT_PK]--fk
+	alter table Dimension.Cotizacion add NumLinea [UDT_SPK]
+	alter table Dimension.Cotizacion add ID_Parte [UDT_SPK]--fk
 	alter table Dimension.Cotizacion add OETipoParte [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add AltPartNum [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add AltTipoParte [UDT_VarcharCorto]
@@ -392,7 +392,7 @@ GO
 	alter table Dimension.Cotizacion add TelefonoContacto [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add TituloTrabajo [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add AlmacenKeystone [UDT_VarcharCorto]
-	alter table Dimension.Cotizacion add IDPredido [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add IDPredio [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add LocalizadorCotizacion [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add FechaAgregado [UDT_DateTime]
 	alter table Dimension.Cotizacion add IDEmpresa [UDT_VarcharCorto]
@@ -400,7 +400,7 @@ GO
 	alter table Dimension.Cotizacion add Activo [UDT_BIT]
 	alter table Dimension.Cotizacion add CreadoPor [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add ActualizadoPor [UDT_VarcharCorto]
-	alter table Dimension.Cotizacion add UltimaFechaActualizacion [UDT_BIT]
+	alter table Dimension.Cotizacion add UltimaFechaActualizacion [UDT_DateTime]
 	alter table Dimension.Cotizacion add NombreAseguradora [UDT_VarcharMediano]--80
 	alter table Dimension.Cotizacion add RowCreatedDate [UDT_DateTime]
 	alter table Dimension.Cotizacion add Activa [UDT_BIT]
@@ -417,7 +417,7 @@ GO
 	alter table Dimension.Vehiculo add Anio smallint
 	alter table Dimension.Vehiculo add Marca [UDT_VarcharCorto]
 	alter table Dimension.Vehiculo add Modelo [UDT_VarcharCorto]
-	alter table Dimension.Vehiculo add SubModelo [UDT_UnCaracter]
+	alter table Dimension.Vehiculo add SubModelo [UDT_VarcharCorto]
 	alter table Dimension.Vehiculo add Estilo [UDT_VarcharMediano]
 	alter table Dimension.Vehiculo add FechaCreacionVehiculo [UDT_DateTime]
 	--columnas scd tipo 2
@@ -447,6 +447,9 @@ GO
 	--DimStatusOrden
 	alter table Dimension.StatusOrden add ID_StatusOrden  [UDT_PK]
 	alter table Dimension.StatusOrden add NombreStatus [UDT_VarcharLargo]
+	--columnas scd tipo 2
+	alter table Dimension.StatusOrden add FechaInicioValidez [UDT_DateTime] not null default (getdate())
+	alter table Dimension.StatusOrden add FechaFinValidez [UDT_DateTime] null
 	--columnas de auditoria
 	alter table Dimension.StatusOrden add FechaCreacion [UDT_DateTime] not null default(getdate())
 	alter table Dimension.StatusOrden  add UsuarioCreacion nvarchar(100) not null default(suser_name())
@@ -458,7 +461,6 @@ GO
 	ALTER TABLE Fact.Orden ADD ID_Orden [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Cliente [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Ciudad [UDT_PK]
-	ALTER TABLE Fact.Orden ADD ID_StatusOrden [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_DetalleOrden [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Parte [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Descuento [UDT_PK]
@@ -467,5 +469,13 @@ GO
 	ALTER TABLE Fact.Orden ADD Fecha_Orden [UDT_DateTime]
 	ALTER TABLE Fact.Orden ADD NumeroOrden [UDT_VarcharCorto]
 	ALTER TABLE Fact.Orden ADD Cantidad int not null
+	--columnas de auditoria
+	alter table Fact.Orden add FechaCreacion [UDT_DateTime] not null default(getdate())
+	alter table Fact.Orden add UsuarioCreacion nvarchar(100) not null default(suser_name())
+	alter table Fact.Orden add FechaModificacion [UDT_DateTime]
+	alter table Fact.Orden add UsuarioModificacion nvarchar(100) null
+	--columnas de linaje
+	ALTER TABLE Fact.Orden ADD ID_Batch UNIQUEIDENTIFIER
+    ALTER TABLE Fact.Orden ADD ID_SourceSystem [UDT_VarcharLargo]
 	go
 
