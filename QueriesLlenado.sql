@@ -2,34 +2,70 @@
 
 --Dimensiones
 
-	--DimCarrera
-	INSERT INTO Dimension.Carrera
-	(ID_Carrera, 
-	 ID_Facultad, 
-	 NombreCarrera, 
-	 NombreFacultad
-	)
+	--DimGeografia
 	SELECT C.ID_Carrera, 
 			F.ID_Facultad, 
 			C.Nombre, 
 			F.Nombre
 	FROM Admisiones.dbo.Facultad F
 		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
-	
-	SELECT * FROM Dimension.Carrera
+	go
+
+	--DimParte
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
+
+	--DimCliente
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
+
+	--DimCotizacion
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
+
+	--DimVehiculo
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
+
+	--DimDescuento
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
+
+	--DimStatusOrden
+	SELECT C.ID_Carrera, 
+			F.ID_Facultad, 
+			C.Nombre, 
+			F.Nombre
+	FROM Admisiones.dbo.Facultad F
+		INNER JOIN Admisiones.dbo.Carrera C ON(C.ID_Facultad = F.ID_Facultad);
+	go
 
 	--DimCandidato
-	INSERT INTO Dimension.Candidato
-	([ID_Candidato], 
-	 [ID_Colegio], 
-	 [ID_Diversificado], 
-	 [NombreCandidato], 
-	 [ApellidoCandidato], 
-	 [Genero], 
-	 [FechaNacimiento], 
-	 [NombreColegio], 
-	 [NombreDiversificado]
-	)
 	SELECT C.ID_Candidato, 
 			CC.ID_Colegio, 
 			D.ID_Diversificado, 
@@ -42,8 +78,8 @@
 	FROM Admisiones.DBO.Candidato C
 		INNER JOIN Admisiones.DBO.ColegioCandidato CC ON(C.ID_Colegio = CC.ID_Colegio)
 		INNER JOIN Admisiones.DBO.Diversificado D ON(C.ID_Diversificado = D.ID_Diversificado);
+	go
 
-		SELECT * FROM Dimension.Candidato
 
 --------------------------------------------------------------------------------------------
 -----------------------CORRER CREATE de USP_FillDimDate PRIMERO!!!--------------------------
@@ -93,14 +129,3 @@
 		INNER JOIN Dimension.Candidato C ON(C.ID_Candidato = R.ID_Candidato)
 		INNER JOIN Dimension.Carrera CA ON(CA.ID_Carrera = R.ID_Carrera)
 		INNER JOIN Dimension.Fecha F ON(CAST((CAST(YEAR(R.FechaPrueba) AS VARCHAR(4)))+left('0'+CAST(MONTH(R.FechaPrueba) AS VARCHAR(4)),2)+left('0'+(CAST(DAY(R.FechaPrueba) AS VARCHAR(4))),2) AS INT)  = F.DateKey);
-
-
---------------------------------------------------------------------------------------------
-------------------------------------Resultado Final-----------------------------------------
---------------------------------------------------------------------------------------------	
-
-	SELECT *
-	FROM	Fact.Examen AS E INNER JOIN
-			Dimension.Candidato AS C ON E.SK_Candidato = C.SK_Candidato INNER JOIN
-			Dimension.Carrera AS CA ON E.SK_Carrera = CA.SK_Carrera INNER JOIN
-			Dimension.Fecha AS F ON E.DateKey = F.DateKey
