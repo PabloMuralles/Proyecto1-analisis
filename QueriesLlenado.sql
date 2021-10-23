@@ -70,7 +70,6 @@
 		FROM dbo.Partes AS P
 		INNER JOIN dbo.Categoria AS C ON P.ID_Categoria = C.ID_Categoria
 		INNER JOIN dbo.Linea AS L ON C.ID_Linea = L.ID_Linea
-
 		--DimStatus
 		SELECT s.ID_StatusOrden, 
 				s.NombreStatus
