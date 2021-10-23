@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{EADC451C-8E3E-4E86-8A3C-15C5D3F7A94D}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{5D9D4DBD-54FC-41D1-8CAB-4ED75E4E727E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2802,7 +2802,9 @@ FROM RepuestosWeb.DBO.Pais p
                           name="NombreCiudad" />
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].ExternalColumns[CodigoPostal]"
-                          dataType="i4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CodigoPostal" />
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].ExternalColumns[FechaCreacion]"
@@ -2871,7 +2873,9 @@ FROM RepuestosWeb.DBO.Pais p
                           name="NombreCiudad" />
                         <outputColumn
                           refId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]"
-                          dataType="i4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]"
                           name="CodigoPostal" />
                         <outputColumn
@@ -6250,11 +6254,11 @@ FROM RepuestosWeb.DBO.Pais p
         <NodeLayout
           Size="176,41.6"
           Id="Package\Carga de Dimensiones\Dimension Geografia"
-          TopLeft="60.515140527427,164.521213918262" />
+          TopLeft="56.9437118951774,79.6388597866427" />
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Carga de Dimensiones\Dimension Partes"
-          TopLeft="67.3333220746786,84.1939413600499" />
+          TopLeft="65.1904648953289,156.841001202427" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -6645,9 +6649,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6669,9 +6671,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6705,9 +6705,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6801,9 +6799,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6837,9 +6833,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6861,9 +6855,7 @@ FROM RepuestosWeb.DBO.Pais p
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

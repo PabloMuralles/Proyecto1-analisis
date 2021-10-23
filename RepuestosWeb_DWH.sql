@@ -342,6 +342,53 @@ GO
 	go
 
 	--DimCotizacion
+	alter table Dimension.Cotizacion add IDCotizacion [UDT_PK]
+	alter table Dimension.Cotizacion add [status] [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add TipoDocumento [UDT_VarcharCorto]--50
+	alter table Dimension.Cotizacion add FechaCreacion [UDT_DateTime]
+	alter table Dimension.Cotizacion add FechaModificacion [UDT_DateTime]
+	alter table Dimension.Cotizacion add ProcesadoPor [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add IDAseguradora [UDT_PK]--FK
+	alter table Dimension.Cotizacion add AseguradoraSubsidiaria [UDT_VarcharMediano]--80
+	alter table Dimension.Cotizacion add NumeroReclamo [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add IDPlantaReparacion [UDT_PK]--fk
+	alter table Dimension.Cotizacion add OrdenRealizada [UDT_VarcharMediano]--80
+	alter table Dimension.Cotizacion add CotizacionRealizada [UDT_BIT]
+	alter table Dimension.Cotizacion add CotizacionDuplicada [UDT_BIT]
+	alter table Dimension.Cotizacion add procurementFolderID [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add DirecionEntrega1 [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add DirecionEntrega2 [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add MarcadoEntrega [UDT_BIT]
+	alter table Dimension.Cotizacion add IDPartner [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add CodigoPostal [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add LeidoPorPlantaReparacion [UDT_BIT]
+	alter table Dimension.Cotizacion add LeidoPorPlantaReparacionFecha [UDT_DateTime]
+	alter table Dimension.Cotizacion add CotizacionReabierta [UDT_BIT]
+	alter table Dimension.Cotizacion add EsAseguradora [UDT_BIT]
+	alter table Dimension.Cotizacion add CodigoVerficacion [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add IDClientePlantaReparacion [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add FechaCreacionRegistro [UDT_DateTime]
+	alter table Dimension.Cotizacion add IDRecotizacion [UDT_VarcharMediano]--100
+	alter table Dimension.Cotizacion add PartnerConfirmado [UDT_BIT]
+	alter table Dimension.Cotizacion add WrittenBy [UDT_VarcharMediano]--80
+	alter table Dimension.Cotizacion add SeguroValidado [UDT_BIT]
+	alter table Dimension.Cotizacion add FechaCaptura [UDT_DateTime]
+	alter table Dimension.Cotizacion add IDOrden [UDT_PK]--fk
+	alter table Dimension.Cotizacion add Ruta varchar(500)--varchar-500
+	alter table Dimension.Cotizacion add FechaLimiteRuta [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add TelefonoEntrega [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add NumLinea [UDT_PK]
+	alter table Dimension.Cotizacion add ID_Parte [UDT_PK]--fk
+	alter table Dimension.Cotizacion add OETipoParte [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add AltPartNum [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add AltTipoParte [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add ciecaTipoParte [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add partDescription varchar(255)--varchar 255
+	alter table Dimension.Cotizacion add Cantidad int
+	alter table Dimension.Cotizacion add PrecioListaOnRO [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add PrecioNetoOnRO [UDT_VarcharCorto]
+	alter table Dimension.Cotizacion add NecesitadoParaFecha [UDT_DateTime]
+	alter table Dimension.Cotizacion add VehiculoID [UDT_PK]--fk
 	alter table Dimension.Cotizacion add IDPlantaReparacion [UDT_PK]
 	alter table Dimension.Cotizacion add CompanyNombre [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add Direccion [UDT_VarcharCorto]
@@ -412,7 +459,7 @@ GO
 
 	--DimStatusOrden
 	alter table Dimension.StatusOrden add ID_StatusOrden  [UDT_PK]
-	alter table Dimension.StatusOrden add ID_NombreStatus [UDT_VarcharLargo]
+	alter table Dimension.StatusOrden add NombreStatus [UDT_VarcharLargo]
 	--columnas de auditoria
 	alter table Dimension.StatusOrden add FechaCreacion [UDT_DateTime] not null default(getdate())
 	alter table Dimension.StatusOrden  add UsuarioCreacion nvarchar(100) not null default(suser_name())
