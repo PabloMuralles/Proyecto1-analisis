@@ -87,7 +87,6 @@
 	FROM dbo.StatusOrden s
 	go
 
-<<<<<<< HEAD
 		 --DimCotizacion
 		 SELECT c.IDCotizacion
 				  ,c.[status]
@@ -172,6 +171,7 @@
 			FROM dbo.Cotizacion c inner join dbo.CotizacionDetalle cd on (c.IDCotizacion = cd.IDCotizacion)
 			  inner join dbo.PlantaReparacion pr on (c.IDPlantaReparacion = pr.IDPlantaReparacion)
 			  inner join dbo.Aseguradoras a on (c.IDAseguradora = a.IDAseguradora)
+			go
 
 	--DimDescuento
 	SELECT ID_Descuento,
