@@ -33,6 +33,10 @@ GO
 	CREATE TYPE [UDT_PK] FROM INT
 	GO
 
+	--tipo para pk string
+	CREATE TYPE [UDT_SPK] FROM varchar(50)
+	GO
+
 
 --cadenas
 
@@ -286,7 +290,7 @@ GO
 	go
 
 	--DimParte
-	alter table Dimension.Parte add ID_Partes [UDT_PK]
+	alter table Dimension.Parte add ID_Parte [UDT_SPK]
 	alter table Dimension.Parte add ID_Linea [UDT_PK]
 	alter table Dimension.Parte add ID_Categoria [UDT_PK]
 	alter table Dimension.Parte add NombreParte [UDT_VarcharCorto]
@@ -331,7 +335,7 @@ GO
 	alter table Dimension.Cotizacion add [status] [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add TipoDocumento [UDT_VarcharCorto]--50
 	alter table Dimension.Cotizacion add FechaCreacionCotizacion [UDT_DateTime]
-	alter table Dimension.Cotizacion add FechaModificacion [UDT_DateTime]
+	alter table Dimension.Cotizacion add FechaModificacionCotizacion [UDT_DateTime]
 	alter table Dimension.Cotizacion add ProcesadoPor [UDT_VarcharCorto]
 	alter table Dimension.Cotizacion add IDAseguradora [UDT_PK]--FK
 	alter table Dimension.Cotizacion add AseguradoraSubsidiaria [UDT_VarcharMediano]--80

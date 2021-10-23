@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{A8542F2F-5547-4441-90B4-3DE5B3E6830D}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{67DD2A07-88EE-492A-8C7A-0167946B20F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -63,6 +63,531 @@
       DTS:ObjectName="Sequence Container">
       <DTS:Variables />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Cliente"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AE2962CD-F228-4A30-AC0E-B25832591293}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Cliente"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Cliente\Linaje"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Linaje"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Cliente\Linaje.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Cliente\Linaje.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Output].Columns[ID_Batch]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Output].Columns[ID_Batch]"
+                          name="ID_Batch"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_GUID)@[System::ExecutionInstanceGUID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_GUID)@[System::ExecutionInstanceGUID]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]"
+                          name="ID_SourceSystem"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)@[System::PackageName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)@[System::PackageName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Cliente\Linaje.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Cliente\Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Cliente\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select C.ID_Cliente,
+			C.PrimerNombre,
+			C.SegundoNombre,
+			C.PrimerApellido,
+			C.SegundoApellido,
+			C.Genero,
+			C.Correo_Electronico,
+			C.FechaNacimiento,
+			C.Direccion
+			--Columnas Auditoria
+			,GETDATE() AS FechaCreacion
+			,CAST(SUSER_NAME() AS nvarchar(100)) AS UsuarioCreacion
+			,GETDATE() AS FechaModificacion
+			,CAST(SUSER_NAME() AS nvarchar(100)) AS UsuarioModificacion
+			,CAST('2020-01-01' AS DATETIME) as FechaInicioValidez
+	from DBO.Clientes C</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Cliente\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_Cliente]"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Cliente]"
+                          name="ID_Cliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimerNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimerNombre]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimerNombre]"
+                          name="PrimerNombre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[SegundoNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SegundoNombre]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[SegundoNombre]"
+                          name="SegundoNombre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimerApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimerApellido]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimerApellido]"
+                          name="PrimerApellido"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[SegundoApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SegundoApellido]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[SegundoApellido]"
+                          name="SegundoApellido"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genero]"
+                          length="1"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]"
+                          name="Genero"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Correo_Electronico]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Correo_Electronico]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Correo_Electronico]"
+                          name="Correo_Electronico"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                          name="FechaNacimiento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Direccion]"
+                          length="1000"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direccion]"
+                          name="Direccion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaCreacion]"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]"
+                          name="FechaCreacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UsuarioCreacion]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]"
+                          name="UsuarioCreacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaModificacion]"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]"
+                          name="FechaModificacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UsuarioModificacion]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]"
+                          name="UsuarioModificacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaInicioValidez]"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicioValidez]"
+                          name="FechaInicioValidez"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_Cliente]"
+                          dataType="i4"
+                          name="ID_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimerNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="PrimerNombre" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SegundoNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SegundoNombre" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimerApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="PrimerApellido" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SegundoApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SegundoApellido" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genero]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Genero" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Correo_Electronico]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Correo_Electronico" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                          dataType="dbTimeStamp"
+                          name="FechaNacimiento" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Direccion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UsuarioCreacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UsuarioModificacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaInicioValidez" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_Cliente]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_Cliente]"
+                          name="ID_Cliente" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimerNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimerNombre]"
+                          name="PrimerNombre" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SegundoNombre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SegundoNombre]"
+                          name="SegundoNombre" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimerApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimerApellido]"
+                          name="PrimerApellido" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SegundoApellido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SegundoApellido]"
+                          name="SegundoApellido" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genero]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genero]"
+                          name="Genero" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Correo_Electronico]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Correo_Electronico]"
+                          name="Correo_Electronico" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                          name="FechaNacimiento" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Direccion]"
+                          name="Direccion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaCreacion]"
+                          name="FechaCreacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UsuarioCreacion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UsuarioCreacion]"
+                          name="UsuarioCreacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaModificacion]"
+                          name="FechaModificacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UsuarioModificacion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UsuarioModificacion]"
+                          name="UsuarioModificacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaInicioValidez]"
+                          name="FechaInicioValidez" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Cliente.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Cliente\Linaje.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Cliente\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Sequence Container\Fecha"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -1413,6 +1938,451 @@
               version="1">
               <components>
                 <component
+                  refId="Package\Sequence Container\Parte\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Parte\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Output].Columns[FechaFinValidez]"
+                          dataType="dbTimeStamp"
+                          description="FechaFinValidez"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Output].Columns[FechaFinValidez]"
+                          name="FechaFinValidez"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Parte\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Parte\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Parte\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Output].Columns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          description="FechaInicioValidez"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Output].Columns[FechaInicioValidez]"
+                          name="FechaInicioValidez"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Parte\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Parte\Insert Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dimension].[Parte]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Parte\Insert Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Parte]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Parte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Linea]"
+                          cachedDataType="i4"
+                          cachedName="ID_Linea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Linea]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Linea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Categoria]"
+                          cachedDataType="i4"
+                          cachedName="ID_Categoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Categoria]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Categoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[NombreParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreParte]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreParte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[DescripcionParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionParte]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionParte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[Precio]"
+                          cachedDataType="numeric"
+                          cachedName="Precio"
+                          cachedPrecision="12"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrecioParte]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[Precio]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[NombreCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreCategoria]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreCategoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[DescripcionCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionCategoria]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionCategoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[NombreLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreLinea]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreLinea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[DescripcionLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionLinea]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionLinea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[FechaInicioValidez]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaInicioValidez"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
+                          lineageId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Output].Columns[FechaInicioValidez]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[FechaCreacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaCreacion]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaCreacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[UsuarioCreacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioCreacion]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioCreacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[FechaModificacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacion]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaModificacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].Columns[UsuarioModificacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioModificacion]"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioModificacion]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_Parte]"
+                          dataType="i4"
+                          name="SK_Parte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Parte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ID_Parte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Linea]"
+                          dataType="i4"
+                          name="ID_Linea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Categoria]"
+                          dataType="i4"
+                          name="ID_Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreParte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionParte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrecioParte]"
+                          dataType="numeric"
+                          name="PrecioParte"
+                          precision="12"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreCategoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionCategoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreLinea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DescripcionLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionLinea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaInicioValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaFinValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaFinValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioCreacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioModificacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioModificacion" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\Parte\Linaje"
                   componentClassID="Microsoft.DerivedColumn"
                   contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1502,6 +2472,453 @@
                           refId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Parte\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Parte] SET [FechaFinValidez] = ? WHERE [ID_Parte] = ? AND [FechaFinValidez] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Parte\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].Columns[FechaFinValidez]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaFinValidez"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Output].Columns[FechaFinValidez]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Parte\OLE DB Command 1"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command 1"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Parte] SET [DescripcionCategoria] = ?,[DescripcionLinea] = ?,[DescripcionParte] = ?,[FechaCreacion] = ?,[FechaModificacion] = ?,[ID_Categoria] = ?,[ID_Linea] = ?,[NombreCategoria] = ?,[NombreLinea] = ?,[NombreParte] = ?,[UsuarioCreacion] = ?,[UsuarioModificacion] = ? WHERE [ID_Parte] = ? AND [FechaFinValidez] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Parte\OLE DB Command 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DescripcionCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionCategoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DescripcionLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionLinea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DescripcionParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionParte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FechaCreacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FechaModificacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_Categoria]"
+                          cachedDataType="i4"
+                          cachedName="ID_Categoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Categoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_Linea]"
+                          cachedDataType="i4"
+                          cachedName="ID_Linea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Linea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[NombreCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreCategoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[NombreLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreLinea]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[NombreParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreParte]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[UsuarioCreacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[UsuarioModificacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="dbTimeStamp"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="dbTimeStamp"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          dataType="i4"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          dataType="i4"
+                          name="Param_6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_9">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_10">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_11">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Param_12">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1948,11 +3365,11 @@
                       dataType="System.String"
                       description="Specifies the SELECT statement used to create a schema rowset."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [DescripcionCategoria], [DescripcionLinea], [DescripcionParte], [FechaCreacion], [FechaModificacion], [ID_Categoria], [ID_Linea], [ID_Parte], [NombreCategoria], [NombreLinea], [NombreParte], [PrecioParte], [UsuarioCreacion], [UsuarioModificacion],[FechaInicioValidez],[FechaFinValidez] FROM [Dimension].[Parte]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                      name="CurrentRowWhere"></property>
+                      name="CurrentRowWhere">[FechaInicioValidez] IS NOT NULL AND [FechaFinValidez] IS NULL</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
@@ -1960,7 +3377,7 @@
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                      name="FailOnFixedAttributeChange">true</property>
+                      name="FailOnFixedAttributeChange">false</property>
                     <property
                       dataType="System.String"
                       description="Specifies the column name for the inferred member."
@@ -1974,7 +3391,7 @@
                       description="Indicates whether the transformation fails when a lookup of an existing record fails."
                       name="FailOnLookupFailure">false</property>
                     <property
-                      dataType="System.UInt32"
+                      dataType="System.Int32"
                       description="Specifies that all rows in the input are new or the transformation detects the change type."
                       name="IncomingRowChangeType"
                       typeConverter="IncomingRowChangeType">1</property>
@@ -1986,6 +3403,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb_DWH]"
                       description="Defines the connection to use for lookups in the dimension table"
                       name="LookupConnection" />
                   </connections>
@@ -1993,8 +3412,293 @@
                     <input
                       refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
                       name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DescripcionCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionCategoria]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionCategoria]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DescripcionLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionLinea]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionLinea]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DescripcionParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionParte]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionParte]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FechaCreacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaCreacion]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FechaModificacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaModificacion]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Categoria]"
+                          cachedDataType="i4"
+                          cachedName="ID_Categoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Categoria]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Categoria]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Linea]"
+                          cachedDataType="i4"
+                          cachedName="ID_Linea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Linea]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Linea]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Parte]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCategoria"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreCategoria]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreCategoria]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreLinea"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreLinea]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreLinea]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreParte"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreParte]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreParte]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Precio]"
+                          cachedDataType="numeric"
+                          cachedName="Precio"
+                          cachedPrecision="12"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PrecioParte]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[Precio]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[UsuarioCreacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioCreacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[UsuarioCreacion]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[UsuarioModificacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioModificacion"
+                          externalMetadataColumnId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[UsuarioModificacion]"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionCategoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionLinea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescripcionParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="DescripcionParte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Categoria]"
+                          dataType="i4"
+                          name="ID_Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Linea]"
+                          dataType="i4"
+                          name="ID_Linea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Parte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ID_Parte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreCategoria" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreLinea" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreParte" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PrecioParte]"
+                          dataType="numeric"
+                          name="PrecioParte"
+                          precision="12"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[UsuarioCreacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[UsuarioModificacion]"
+                          dataType="wstr"
+                          length="100"
+                          name="UsuarioModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaInicioValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaFinValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaFinValidez" />
+                      </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
@@ -2048,18 +3752,681 @@
                     </output>
                   </outputs>
                 </component>
+                <component
+                  refId="Package\Sequence Container\Parte\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Parte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[ID_Linea]"
+                          cachedDataType="i4"
+                          cachedName="ID_Linea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Linea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Linea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[ID_Categoria]"
+                          cachedDataType="i4"
+                          cachedName="ID_Categoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Categoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Categoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[NombreParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreParte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreParte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreParte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[DescripcionParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionParte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionParte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionParte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[Precio]"
+                          cachedDataType="numeric"
+                          cachedName="Precio"
+                          cachedPrecision="12"
+                          cachedScale="2"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[Precio]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[Precio]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[NombreCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCategoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreCategoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreCategoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[DescripcionCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionCategoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionCategoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionCategoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[NombreLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreLinea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreLinea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreLinea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[DescripcionLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionLinea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionLinea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionLinea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[FechaCreacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaCreacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaCreacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[UsuarioCreacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioCreacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioCreacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[FechaModificacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaModificacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaModificacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[UsuarioModificacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioModificacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioModificacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[FechaInicioValidez]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaInicioValidez"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicioValidez]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaInicioValidez]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          lineageId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Output].Columns[ID_Batch]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Batch]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          lineageId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_SourceSystem]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[ID_Parte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_Parte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Parte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[ID_Linea]"
+                          cachedDataType="i4"
+                          cachedName="ID_Linea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Linea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Linea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[ID_Categoria]"
+                          cachedDataType="i4"
+                          cachedName="ID_Categoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Categoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Categoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[NombreParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreParte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreParte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreParte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[DescripcionParte]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionParte"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionParte]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionParte]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[Precio]"
+                          cachedDataType="numeric"
+                          cachedName="Precio"
+                          cachedPrecision="12"
+                          cachedScale="2"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[Precio]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[Precio]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[NombreCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCategoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreCategoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreCategoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[DescripcionCategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionCategoria"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionCategoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionCategoria]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[NombreLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreLinea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreLinea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreLinea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[DescripcionLinea]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DescripcionLinea"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionLinea]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionLinea]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[FechaCreacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaCreacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaCreacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[UsuarioCreacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioCreacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioCreacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[FechaModificacion]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaModificacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaModificacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[UsuarioModificacion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UsuarioModificacion"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioModificacion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[FechaInicioValidez]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FechaInicioValidez"
+                          lineageId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicioValidez]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaInicioValidez]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          lineageId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Output].Columns[ID_Batch]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Batch]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          lineageId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_SourceSystem]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Parte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Parte]"
+                          name="ID_Parte" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Linea]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Linea]"
+                          name="ID_Linea" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Categoria]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Categoria]"
+                          name="ID_Categoria" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreParte]"
+                          name="NombreParte" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionParte]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionParte]"
+                          name="DescripcionParte" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[Precio]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[Precio]"
+                          name="Precio"
+                          precision="12"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreCategoria]"
+                          name="NombreCategoria" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionCategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionCategoria]"
+                          name="DescripcionCategoria" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[NombreLinea]"
+                          name="NombreLinea" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionLinea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[DescripcionLinea]"
+                          name="DescripcionLinea" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaCreacion]"
+                          name="FechaCreacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioCreacion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioCreacion]"
+                          name="UsuarioCreacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaModificacion]"
+                          name="FechaModificacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioModificacion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[UsuarioModificacion]"
+                          name="UsuarioModificacion" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[FechaInicioValidez]"
+                          name="FechaInicioValidez" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Batch]"
+                          dataType="guid"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_Batch]"
+                          name="ID_Batch" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1].Columns[ID_SourceSystem]"
+                          name="ID_SourceSystem" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[Changing Attribute Updates Output]"
+                  endId="Package\Sequence Container\Parte\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  name="Changing Attribute Updates Output"
+                  startId="Package\Sequence Container\Parte\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
                 <path
                   refId="Package\Sequence Container\Parte.Paths[Derived Column Output]"
                   endId="Package\Sequence Container\Parte\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\Parte\Linaje.Outputs[Derived Column Output]" />
                 <path
+                  refId="Package\Sequence Container\Parte.Paths[Derived Column Output1]"
+                  endId="Package\Sequence Container\Parte\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Parte\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[Derived Column Output2]"
+                  endId="Package\Sequence Container\Parte\Insert Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Parte\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[Historical Attribute Inserts Output]"
+                  endId="Package\Sequence Container\Parte\Derived Column.Inputs[Derived Column Input]"
+                  name="Historical Attribute Inserts Output"
+                  startId="Package\Sequence Container\Parte\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[New Output]"
+                  endId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 1]"
+                  name="New Output"
+                  startId="Package\Sequence Container\Parte\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[OLE DB Command Output]"
+                  endId="Package\Sequence Container\Parte\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\Sequence Container\Parte\OLE DB Command.Outputs[OLE DB Command Output]" />
+                <path
                   refId="Package\Sequence Container\Parte.Paths[OLE DB Source Output]"
                   endId="Package\Sequence Container\Parte\Linaje.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Sequence Container\Parte\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Parte.Paths[Union All Output 1]"
+                  endId="Package\Sequence Container\Parte\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\Sequence Container\Parte\Union All.Outputs[Union All Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -2078,7 +4445,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Sequence Container\Fecha"
@@ -2091,11 +4458,15 @@
           Size="103.2,41.6"
           Id="Package\Sequence Container\Parte"
           TopLeft="73.14286050018,145.917650608703" />
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\Sequence Container\Cliente"
+          TopLeft="66.7142889621308,210.788239551828" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270.4,247.2"
-          Size="270.4,290.4"
+          PanelSize="270.4,310.4"
+          Size="270.4,353.6"
           Id="Package\Sequence Container"
           TopLeft="124.285716402287,67.2941185908334" />
       </GraphLayout>
@@ -2354,29 +4725,55 @@
     design-time-name="Package\Sequence Container\Parte">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Sequence Container\Parte\OLE DB Source"
-          TopLeft="214,33" />
+          Size="208,41.6"
+          Id="Package\Sequence Container\Parte\Slowly Changing Dimension"
+          TopLeft="126.9,208.7" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Sequence Container\Parte\Linaje"
-          TopLeft="241,114.6" />
+          TopLeft="177.7,107.1" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Parte\OLE DB Source"
+          TopLeft="156.1,5.49999999999995" />
         <EdgeLayout
           Id="Package\Sequence Container\Parte.Paths[OLE DB Source Output]"
-          TopLeft="291.5,74.6">
+          TopLeft="230.9,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,32.5">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[Derived Column Output]"
+          TopLeft="230.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2386,23 +4783,394 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="208,41.6"
-          Id="Package\Sequence Container\Parte\Slowly Changing Dimension"
-          TopLeft="188,199" />
+          Size="152.8,41.6"
+          Id="Package\Sequence Container\Parte\Derived Column"
+          TopLeft="17.5,310.3" />
         <EdgeLayout
-          Id="Package\Sequence Container\Parte.Paths[Derived Column Output]"
-          TopLeft="293.1,156.2">
+          Id="Package\Sequence Container\Parte.Paths[Historical Attribute Inserts Output]"
+          TopLeft="180.9,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.7999999999999"
+              EndConnector="-87,59.9999999999999"
               Start="0,0"
-              End="0,35.2999999999999">
+              End="-87,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.2999999999999" />
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="-4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="-83,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83,20.506329113924"
+                    Point2="-87,20.506329113924"
+                    Point3="-87,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="-87,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.55638671875,25.506329113924,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Sequence Container\Parte\OLE DB Command"
+          TopLeft="5.50000000000003,411.9" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[Derived Column Output1]"
+          TopLeft="90.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Sequence Container\Parte\Union All"
+          TopLeft="170.9,513.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[New Output]"
+          TopLeft="230.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.6666666666667,263.2"
+              Start="0,0"
+              End="18.6666666666667,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,151.842105263158"
+                    Point2="0,155.842105263158"
+                    Point3="4,155.842105263158" />
+                  <mssgle:LineSegment
+                    End="14.6666666666667,155.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6666666666667,155.842105263158"
+                    Point2="18.6666666666667,155.842105263158"
+                    Point3="18.6666666666667,159.842105263158" />
+                  <mssgle:LineSegment
+                    End="18.6666666666667,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.7580533854167,160.842105263158,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[OLE DB Command Output]"
+          TopLeft="87.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999999"
+              Start="0,0"
+              End="124.333333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\Parte\Derived Column 1"
+          TopLeft="149.7,615.099999999999" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[Union All Output 1]"
+          TopLeft="230.9,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\Parte\Insert Destination"
+          TopLeft="149.7,716.699999999999" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[Derived Column Output2]"
+          TopLeft="230.9,656.699999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\Parte\OLE DB Command 1"
+          TopLeft="291.7,310.3" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Parte.Paths[Changing Attribute Updates Output]"
+          TopLeft="280.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,59.9999999999999"
+              Start="0,0"
+              End="98,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="94,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,20.506329113924"
+                    Point2="98,20.506329113924"
+                    Point3="98,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="98,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.53390625,25.506329113924,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Parte\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{0A61A9EA-F2A4-497F-B562-5F8E24559BD1}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[Dimension].[Parte]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionCategoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DescripcionCategoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionLinea]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DescripcionLinea&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DescripcionParte]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DescripcionParte&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaCreacion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaCreacion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaModificacion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaModificacion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Categoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Categoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Linea]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Linea&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_Parte]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Parte&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreCategoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreCategoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreLinea]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreLinea&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[NombreParte]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreParte&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Precio]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PrecioParte&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioCreacion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;UsuarioCreacion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[UsuarioModificacion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;UsuarioModificacion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;FechaInicioValidez&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;FechaFinValidez&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Parte\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Cliente">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Cliente\OLE DB Source"
+          TopLeft="217,42" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Sequence Container\Cliente\Linaje"
+          TopLeft="245,138.6" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Cliente.Paths[OLE DB Source Output]"
+          TopLeft="295,83.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2415,7 +5183,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Parte\OLE DB Source">
+    design-time-name="Package\Sequence Container\Cliente\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
