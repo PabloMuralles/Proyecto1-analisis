@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>AutoPartes_SSAS</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>ceg7XQ/5v84sMXAkDzT3/pjZrpU=24/10/2021 10:02:1323/10/2021 09:33:13</TimeStamp>
+        <ID>
+          <String>Repuestos Web DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>I26mkqp2xkf4ATA1w8ThK+bkngo=24/10/2021 10:05:2423/10/2021 09:41:47</TimeStamp>
+        <ID>
+          <String>Repuestos Web DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MSFThQj47p8BJt5AIkeOYdEd3gg=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Cotizacion</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>w560vLvIUOzgQozbeqWOn15KXh0=23/10/2021 10:00:5323/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Fecha</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>K5wYJeKBKW3gDKxrZ1cL3ge+weM=23/10/2021 10:08:5723/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Parte</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>i1i32mP4euhJu3ZRkrzyof0srBg=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Cliente</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6qdFJ9NctqcUXQ3RpkJythRXzaU=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Status Orden</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>94bZWeeb3preZryQpAih0gRBu1Q=24/10/2021 10:05:2423/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Vehiculo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lD/e12yf+WMFI7LHtDJ1bz2H24U=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Descuento</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vUIaYAoCaiEeUd1cwmN4E+cctTw=23/10/2021 10:00:0823/10/2021 09:44:59</TimeStamp>
+        <ID>
+          <String>Geografia</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>HUTKLSvtGHvQMJKYBb0N/jLZVnA=24/10/2021 10:05:2424/10/2021 09:10:591KbI5jvdn6KWWi9fkvWmth2IAy4=24/10/2021 09:24:1124/10/2021 09:10:59</TimeStamp>
+        <ID>
+          <String>Repuestos Web DWH</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>/BdB75a5RUm8/ajcU83PQKzYhpg=23/10/2021 09:02:0323/10/2021 09:02:02</TimeStamp>
+      <ID>
+        <String>AutoPartes_SSAS</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>false</ProcessingComplete>
+  <LastDeployed>2021-10-24T16:05:29.203333Z</LastDeployed>
+</DeploymentSnapshot>
