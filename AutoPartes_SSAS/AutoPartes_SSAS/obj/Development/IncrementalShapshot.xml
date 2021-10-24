@@ -19,77 +19,77 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>ceg7XQ/5v84sMXAkDzT3/pjZrpU=24/10/2021 10:02:1323/10/2021 09:33:13</TimeStamp>
+        <TimeStamp>+SYPVL8QTtE37i1RwFqzwa4EI8k=24/10/2021 10:52:1524/10/2021 10:52:15</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>I26mkqp2xkf4ATA1w8ThK+bkngo=24/10/2021 10:05:2423/10/2021 09:41:47</TimeStamp>
+        <TimeStamp>yoXhDBZDKc2fVJwxw849T5jsorM=24/10/2021 10:52:4024/10/2021 10:52:39</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>MSFThQj47p8BJt5AIkeOYdEd3gg=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>GPVlAe0UK/HiapW5XBhyOjgKhs0=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Cotizacion</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>w560vLvIUOzgQozbeqWOn15KXh0=23/10/2021 10:00:5323/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>cfOWQXG/YYULR3Xx6j4VGhP9RNU=24/10/2021 10:56:5824/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Fecha</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>K5wYJeKBKW3gDKxrZ1cL3ge+weM=23/10/2021 10:08:5723/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>dRs5kCcFyO7SSH1DbHUilRrvvf8=24/10/2021 11:21:0224/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Parte</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>i1i32mP4euhJu3ZRkrzyof0srBg=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>38zAQI4TIxTPy/r8HqdGPIHl1vk=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Cliente</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>6qdFJ9NctqcUXQ3RpkJythRXzaU=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>owbfr7fbb8hiYx3AVZL+78paF1A=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Status Orden</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>94bZWeeb3preZryQpAih0gRBu1Q=24/10/2021 10:05:2423/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>TIYMs+y2uqUCZ5WOX/gHcXuEV14=24/10/2021 11:21:0224/10/2021 10:53:07</TimeStamp>
         <ID>
           <String>Vehiculo</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>lD/e12yf+WMFI7LHtDJ1bz2H24U=23/10/2021 09:44:5923/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>EjC5AmVNFEJfzdU30S9zcxPDS7M=24/10/2021 10:53:0724/10/2021 10:53:07</TimeStamp>
         <ID>
           <String>Descuento</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>vUIaYAoCaiEeUd1cwmN4E+cctTw=23/10/2021 10:00:0823/10/2021 09:44:59</TimeStamp>
+        <TimeStamp>kMfldjDKnnVOr23/gDJxjtl7Gig=24/10/2021 10:56:5824/10/2021 10:53:07</TimeStamp>
         <ID>
           <String>Geografia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>HUTKLSvtGHvQMJKYBb0N/jLZVnA=24/10/2021 10:05:2424/10/2021 09:10:591KbI5jvdn6KWWi9fkvWmth2IAy4=24/10/2021 09:24:1124/10/2021 09:10:59</TimeStamp>
+        <TimeStamp>zN5L6tzC5s3UPZil/lHETS7xzoI=24/10/2021 11:45:1224/10/2021 10:53:06VI0WxW6ZDNVtjTpWsBkGb01Yd84=24/10/2021 11:43:0824/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -97,7 +97,7 @@
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>/BdB75a5RUm8/ajcU83PQKzYhpg=23/10/2021 09:02:0323/10/2021 09:02:02</TimeStamp>
+      <TimeStamp>Pxdz7xNEMn1o5WSnLk2mDzU3jK4=24/10/2021 10:50:5624/10/2021 10:50:56</TimeStamp>
       <ID>
         <String>AutoPartes_SSAS</String>
       </ID>
@@ -105,6 +105,6 @@
     <Granularity>Coarse</Granularity>
   </Snapshot>
   <AssemblyLocations />
-  <ProcessingComplete>false</ProcessingComplete>
-  <LastDeployed>2021-10-24T16:05:29.203333Z</LastDeployed>
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-10-24T17:45:20.68Z</LastDeployed>
 </DeploymentSnapshot>

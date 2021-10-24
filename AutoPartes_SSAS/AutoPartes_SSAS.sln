@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "AutoPartes_SSAS", "AutoPartes_SSAS\AutoPartes_SSAS.dwproj", "{706D9DDF-B70A-4302-9A68-D1B2F238E54E}"
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "AutoPartes_SSAS", "AutoPartes_SSAS\AutoPartes_SSAS.dwproj", "{A033DDEE-0B0E-439A-A50D-3BD92688CED2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{706D9DDF-B70A-4302-9A68-D1B2F238E54E}.Development|Default.ActiveCfg = Development
-		{706D9DDF-B70A-4302-9A68-D1B2F238E54E}.Development|Default.Build.0 = Development
-		{706D9DDF-B70A-4302-9A68-D1B2F238E54E}.Development|Default.Deploy.0 = Development
+		{A033DDEE-0B0E-439A-A50D-3BD92688CED2}.Development|Default.ActiveCfg = Development
+		{A033DDEE-0B0E-439A-A50D-3BD92688CED2}.Development|Default.Build.0 = Development
+		{A033DDEE-0B0E-439A-A50D-3BD92688CED2}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {89637699-9424-41ED-895C-4A5A48F743D8}
+		SolutionGuid = {0766D285-478D-43F1-95A9-AC9E0BEE2265}
 	EndGlobalSection
 EndGlobal

@@ -1,17 +1,17 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="06cd31fd-279c-4ecd-aba5-706eaeaeef3a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ef4f5bfa-9d74-49e8-aed0-e37b9bb49731" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Repuestos Web DWH</ID>
   <MeasureGroups>
     <MeasureGroup>
       <ID>Orden</ID>
       <Partitions>
-        <Partition dwd:design-time-name="fa8081ef-5d92-46e9-b2c9-11d21ec6e298">
+        <Partition dwd:design-time-name="672c935f-658e-4080-8cac-bca6ab33d1f6">
           <ID>Orden</ID>
           <Name>Orden</Name>
           <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="14781985-38de-4188-8326-00ff854a5b80">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3657eb22-9666-427a-a488-85cf1051f5d5">
             <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
             <TableID>Fact_Orden</TableID>
           </Source>
@@ -24,14 +24,14 @@
     <MeasureGroup>
       <ID>Cotizacion</ID>
       <Partitions>
-        <Partition dwd:design-time-name="d468d29a-e380-47d1-a0b1-9ccd7c7bd2a2">
+        <Partition dwd:design-time-name="7df9abe9-7282-46bf-978b-4cbc69d553e4">
           <ID>Cotizacion</ID>
           <Name>Cotizacion</Name>
-          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b76fd52b-c05b-48f3-bc16-d8b79a859b71">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="db25a85b-deb9-4ac0-b419-685aba5bb6ba">
             <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
             <TableID>Dimension_Cotizacion</TableID>
           </Source>
