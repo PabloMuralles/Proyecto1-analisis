@@ -6,10 +6,83 @@
     <Name>AutoPartes_SSAS.database</Name>
     <FullPath>AutoPartes_SSAS.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Repuestos Web DWH.cube</Name>
+      <FullPath>Repuestos Web DWH.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Repuestos Web DWH.partitions</Name>
+          <FullPath>Repuestos Web DWH.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Cotizacion.dim</Name>
+      <FullPath>Cotizacion.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha.dim</Name>
+      <FullPath>Fecha.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Parte.dim</Name>
+      <FullPath>Parte.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cliente.dim</Name>
+      <FullPath>Cliente.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Status Orden.dim</Name>
+      <FullPath>Status Orden.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vehiculo.dim</Name>
+      <FullPath>Vehiculo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Descuento.dim</Name>
+      <FullPath>Descuento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Geografia.dim</Name>
+      <FullPath>Geografia.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>Repuestos Web DWH.ds</Name>
+      <FullPath>Repuestos Web DWH.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>Repuestos Web DWH.dsv</Name>
+      <FullPath>Repuestos Web DWH.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>Repuestos Web DWH</Id>
+            <Name>Repuestos Web DWH</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=RepuestosWeb_DWH</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>Repuestos Web DWH</Id>
+            <Name>Repuestos Web DWH</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
