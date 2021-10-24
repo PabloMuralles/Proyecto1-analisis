@@ -5,15 +5,20 @@
 use RepuestosWeb_DWH
 go
 
-CREATE PROCEDURE USP_FillDimDate @CurrentDate DATE = '2016-01-01', 
+CREATE or alter PROCEDURE USP_FillDimDate @CurrentDate DATE = '2016-01-01', 
                                  @EndDate     DATE = '2022-12-31'
 AS
     BEGIN
         SET NOCOUNT ON;
-        DELETE FROM Dimension.Fecha;
+        --DELETE FROM Dimension.Fecha;
 
         WHILE @CurrentDate < @EndDate
             BEGIN
+			declare @Key int;
+			set @Key = YEAR(@CurrentDate) * 10000 + MONTH(@CurrentDate) * 100 + DAY(@CurrentDate);
+			if not exists (select * from Dimension.Fecha where DateKey = @Key)
+			begin
+
                 INSERT INTO Dimension.Fecha
                 ([DateKey], 
                  [Date], 
@@ -86,6 +91,7 @@ AS
                                                 THEN 1
                                                 ELSE 0
                                             END     ;
+											end;
                 SET @CurrentDate = DATEADD(DD, 1, @CurrentDate);
             END;
     END;
