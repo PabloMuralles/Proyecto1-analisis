@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{DEBE44FA-4DE0-4D65-8BF2-764C261E067B}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{47FA070C-D141-42E7-AA6E-1276811D2340}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,21 +117,21 @@
         <NodeLayout
           Size="165.6,41.6"
           Id="Package\Actualizar Medidas"
-          TopLeft="245.714289898775,255.411768287936" />
+          TopLeft="246.428575625225,257.705885967169" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="326.985718233002,140.247060207017">
+          TopLeft="327.342861096227,140.247060207017">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,115.164708080919"
+              EndConnector="0,117.458825760152"
               Start="0,0"
-              End="0,107.664708080919">
+              End="0,109.958825760152">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,107.664708080919" />
+                    End="0,109.958825760152" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

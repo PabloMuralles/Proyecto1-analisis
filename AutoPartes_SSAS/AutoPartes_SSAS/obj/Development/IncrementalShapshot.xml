@@ -33,7 +33,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>GPVlAe0UK/HiapW5XBhyOjgKhs0=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>0DhhIEXQh8ugbzVXov7tXfGdnQk=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Cotizacion</String>
         </ID>
@@ -61,7 +61,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>owbfr7fbb8hiYx3AVZL+78paF1A=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>uRRPSoJrWAa0ChfbkbFv+kdWgwo=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Status Orden</String>
         </ID>
@@ -89,7 +89,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>zN5L6tzC5s3UPZil/lHETS7xzoI=24/10/2021 11:45:1224/10/2021 10:53:06VI0WxW6ZDNVtjTpWsBkGb01Yd84=24/10/2021 11:43:0824/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>/GzpF3zxQqxsnd/iVyewyE+swj0=24/10/2021 01:36:3324/10/2021 10:53:06Tqu1Pap7OHRcy5ul+KW/njVuoK0=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -106,5 +106,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-10-24T17:45:20.68Z</LastDeployed>
+  <LastDeployed>2021-10-24T19:36:52.343333Z</LastDeployed>
 </DeploymentSnapshot>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{B6445D6F-68FF-4351-A3B8-52D0B775609B}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{BF8B2640-DE84-4055-A5C1-46A8419C24BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -265,7 +265,9 @@
                           name="ID_DetalleOrden" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Carga Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Parte]"
-                          dataType="i4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ID_Parte" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Carga Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Descuento]"
@@ -299,6 +301,10 @@
                           refId="Package\Sequence Container\Carga Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_StatusOrden]"
                           dataType="i4"
                           name="ID_StatusOrden" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Carga Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacionSource]"
+                          dataType="dbTimeStamp"
+                          name="FechaModificacionSource" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -755,6 +761,14 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Sequence Container\Actualizar fact"
+          TopLeft="42.6857174240814,235.529415797197" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Sequence Container\Carga Staging"
+          TopLeft="45.5428603298811,155.600003281762" />
+        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Sequence Container\Limpiar staging"
           TopLeft="44.8285746034311,14.129413062396" />
@@ -784,10 +798,6 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144,41.6"
-          Id="Package\Sequence Container\Carga Staging"
-          TopLeft="45.5428603298811,155.600003281762" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="121.342860159582,128.376472904773">
@@ -810,10 +820,6 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Sequence Container\Actualizar fact"
-          TopLeft="42.6857174240814,235.529415797197" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="116.314288876981,197.200003281762">
@@ -852,13 +858,13 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Sequence Container\Carga Staging\OLE DB Source"
-          TopLeft="186.428574603431,37.470588760805" />
-        <NodeLayout
           Size="170.4,41.6"
           Id="Package\Sequence Container\Carga Staging\OLE DB Destination"
           TopLeft="177.142860159582,120.823531106269" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Carga Staging\OLE DB Source"
+          TopLeft="186.428574603431,37.470588760805" />
         <EdgeLayout
           Id="Package\Sequence Container\Carga Staging.Paths[OLE DB Source Output]"
           TopLeft="261.785717381507,79.070588760805">
@@ -885,14 +891,6 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Carga Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Carga Staging\OLE DB Destination">
     <Properties>
       <Property>
@@ -902,6 +900,14 @@ WHERE ((Fecha_Orden&gt;?) OR (FechaModificacion&gt;?))</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Carga Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

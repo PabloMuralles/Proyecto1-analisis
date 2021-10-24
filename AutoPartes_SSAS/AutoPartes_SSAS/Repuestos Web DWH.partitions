@@ -1,17 +1,17 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ef4f5bfa-9d74-49e8-aed0-e37b9bb49731" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="891f858b-37e4-41f5-b9e3-ccedc996d710" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Repuestos Web DWH</ID>
   <MeasureGroups>
     <MeasureGroup>
       <ID>Orden</ID>
       <Partitions>
-        <Partition dwd:design-time-name="672c935f-658e-4080-8cac-bca6ab33d1f6">
+        <Partition dwd:design-time-name="80839e39-5582-4a53-a90b-b6a1965c8c3d">
           <ID>Orden</ID>
           <Name>Orden</Name>
           <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3657eb22-9666-427a-a488-85cf1051f5d5">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="580abe3d-6b4c-480c-976b-dac17349bf16">
             <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
             <TableID>Fact_Orden</TableID>
           </Source>
@@ -24,16 +24,36 @@
     <MeasureGroup>
       <ID>Cotizacion</ID>
       <Partitions>
-        <Partition dwd:design-time-name="7df9abe9-7282-46bf-978b-4cbc69d553e4">
+        <Partition dwd:design-time-name="f5ef12ef-13d3-4cdc-a3e4-5092bb926323">
           <ID>Cotizacion</ID>
           <Name>Cotizacion</Name>
           <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="db25a85b-deb9-4ac0-b419-685aba5bb6ba">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4fec8c9a-2ee1-4ac5-a191-8734d88defb4">
             <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
             <TableID>Dimension_Cotizacion</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Descuento</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3e0946cc-02ce-4e6b-90f5-338d9c53fa74">
+          <ID>Descuento</ID>
+          <Name>Descuento</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c74529c7-6edd-4268-97d2-a118ae3c333f">
+            <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
+            <TableID>Dimension_Descuento</TableID>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
