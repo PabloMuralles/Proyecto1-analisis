@@ -49,16 +49,18 @@ DROP TABLE IF EXISTS [staging].[Orden]
 GO
 
 CREATE TABLE [staging].[Orden](
-	ID_Orden [int] not null,
-	ID_Cliente [int] not null,
-	ID_Ciudad [int] not null,
-	ID_DetalleOrden [int] not null,
-	ID_Parte [int] not null,
-	ID_Descuento [int] not null,
-	VehiculoID [int] not null,
-	Total_Orden [decimal](12, 2) not NULL,
-	Fecha_Orden DATETIME not null,
+	ID_Orden [int] null,
+	ID_Cliente [int] null,
+	ID_Ciudad [int] null,
+	ID_DetalleOrden [int] null,
+	ID_Parte varchar(50) null,
+	ID_Descuento [int] null,
+	VehiculoID [int] null,
+	ID_StatusOrden [int] null,
+	Total_Orden [decimal](12, 2) NULL,
+	Fecha_Orden DATETIME null,
 	NumeroOrden varchar(20) null,
-	Cantidad int not null
+	Cantidad int null,
+	FechaModificacionSource datetime null
 ) ON [PRIMARY]
 GO

@@ -2,7 +2,7 @@ USE [RepuestosWeb_DWH]
 GO
 
 --Script de SP para MERGE
-CREATE PROCEDURE USP_MergeFact
+create or alter PROCEDURE USP_MergeFact
 as
 BEGIN
 
@@ -14,30 +14,114 @@ BEGIN
 		INSERT INTO FactLog ([ID_Batch], [FechaEjecucion], [NuevosRegistros])
 		VALUES (@NuevoGUIDInsert,NULL,NULL)
 		
-		MERGE Fact.Examen AS T
+		MERGE Fact.Orden AS T
 		USING (
-			SELECT [SK_Candidato], [SK_Carrera], [DateKey], [ID_Examen], [ID_Descuento], r.Descripcion AS DescripcionDescuento, [PorcentajeDescuento], [Precio], r.Nota as NotaTotal, [NotaArea], [NombreMateria], getdate() as FechaCreacion, 'ETL' as UsuarioCreacion, NULL as FechaModificacion, NULL as UsuarioModificacion, @NuevoGUIDINsert as ID_Batch, 'ssis' as ID_SourceSystem, r.FechaPrueba, r.FechaModificacionSource
-			FROM STAGING.Examen R
-				INNER JOIN Dimension.Candidato C ON(C.ID_Candidato = R.ID_Candidato and
-													R.FechaPrueba BETWEEN c.FechaInicioValidez AND ISNULL(c.FechaFinValidez, '9999-12-31')) 
-				INNER JOIN Dimension.Carrera CA ON(CA.ID_Carrera = R.ID_Carrera and
-													R.FechaPrueba BETWEEN CA.FechaInicioValidez AND ISNULL(CA.FechaFinValidez, '9999-12-31')) 
-				LEFT JOIN Dimension.Fecha F ON(CAST( (CAST(YEAR(R.FechaPrueba) AS VARCHAR(4)))+left('0'+CAST(MONTH(R.FechaPrueba) AS VARCHAR(4)),2)+left('0'+(CAST(DAY(R.FechaPrueba) AS VARCHAR(4))),2) AS INT)  = F.DateKey)
-				) AS S ON (S.ID_examen = T.ID_Examen)
+			SELECT SK_Geografia,
+			SK_Parte,
+			SK_Cliente,
+			SK_Cotizacion,
+			SK_Vehiculo,
+			SK_Descuento,
+			SK_StatusOrden,
+			DateKey,
+			o.ID_Orden,
+			o.ID_Cliente,
+			o.ID_Ciudad,
+			o.ID_DetalleOrden,
+			o.ID_Parte,
+			o.ID_Descuento,
+			o.VehiculoID,
+			o.ID_StatusOrden,
+			o.Total_Orden,
+			o.Fecha_Orden,
+			o.NumeroOrden,
+			o.Cantidad,
+			o.FechaModificacionSource,
+			getdate() as FechaCreacion,
+			'ETL' as UsuarioCreacion,
+			NULL as FechaModificacion,
+			NULL as UsuarioModificacion,
+			@NuevoGUIDINsert as ID_Batch,
+			'ssis' as ID_SourceSystem
+			FROM staging.Orden o
+				LEFT JOIN Dimension.Geografia g ON(g.ID_Ciudad = o.ID_Ciudad) 
+				LEFT JOIN Dimension.Parte p ON(p.ID_Parte = o.ID_Parte)
+				LEFT JOIN Dimension.Cliente c ON(c.ID_Cliente = o.ID_Cliente)
+				LEFT JOIN Dimension.Cotizacion co ON(co.IDOrden = o.ID_Orden)
+				LEFT JOIN Dimension.Vehiculo v ON(v.VehiculoID = o.VehiculoID)
+				LEFT JOIN Dimension.Descuento d ON(d.ID_Descuento = o.ID_Descuento)
+				LEFT JOIN Dimension.StatusOrden so ON(so.ID_StatusOrden = o.ID_StatusOrden)				
+				LEFT JOIN Dimension.Fecha F ON(CAST( (CAST(YEAR(o.Fecha_Orden) AS VARCHAR(4)))+left('0'+CAST(MONTH(o.Fecha_Orden) AS VARCHAR(4)),2)+left('0'+(CAST(DAY(o.Fecha_Orden) AS VARCHAR(4))),2) AS INT)  = F.DateKey)
+				) AS S ON (S.ID_Orden = T.ID_Orden)
 
 		WHEN NOT MATCHED BY TARGET THEN --No existe en Fact
-		INSERT ([SK_Candidato], [SK_Carrera], [DateKey], [ID_Examen], [ID_Descuento], [DescripcionDescuento], [PorcentajeDescuento], [Precio], [NotaTotal], [NotaArea], [NombreMateria], [FechaCreacion], [UsuarioCreacion], [FechaModificacion], [UsuarioModificacion], [ID_Batch], [ID_SourceSystem], FechaPrueba, FechaModificacionSource)
-		VALUES (S.[SK_Candidato], S.[SK_Carrera], S.[DateKey], S.[ID_Examen], S.[ID_Descuento], S.[DescripcionDescuento], S.[PorcentajeDescuento], S.[Precio], S.[NotaTotal], S.[NotaArea], S.[NombreMateria], S.[FechaCreacion], S.[UsuarioCreacion], S.[FechaModificacion], S.[UsuarioModificacion], S.[ID_Batch], S.[ID_SourceSystem], S.FechaPrueba, S.FechaModificacionSource);
+		INSERT (
+		SK_Geografia,
+			SK_Parte,
+			SK_Cliente,
+			SK_Cotizacion,
+			SK_Vehiculo,
+			SK_Descuento,
+			SK_StatusOrden,
+			DateKey,
+			ID_Orden,
+			ID_Cliente,
+			ID_Ciudad,
+			ID_DetalleOrden,
+			ID_Parte,
+			ID_Descuento,
+			VehiculoID,
+			ID_StatusOrden,
+			Total_Orden,
+			Fecha_Orden,
+			NumeroOrden,
+			Cantidad,
+			FechaModificacionSource,
+			FechaCreacion,
+			UsuarioCreacion,
+			FechaModificacion,
+			UsuarioModificacion,
+			ID_Batch,
+			ID_SourceSystem)
+		VALUES (
+		s.SK_Geografia,
+			s.SK_Parte,
+			s.SK_Cliente,
+			s.SK_Cotizacion,
+			s.SK_Vehiculo,
+			s.SK_Descuento,
+			s.SK_StatusOrden,
+			s.DateKey,
+			s.ID_Orden,
+			s.ID_Cliente,
+			s.ID_Ciudad,
+			s.ID_DetalleOrden,
+			s.ID_Parte,
+			s.ID_Descuento,
+			s.VehiculoID,
+			s.ID_StatusOrden,
+			s.Total_Orden,
+			s.Fecha_Orden,
+			s.NumeroOrden,
+			s.Cantidad,
+			s.FechaModificacionSource,
+			s.FechaCreacion,
+			s.UsuarioCreacion,
+			s.FechaModificacion,
+			s.UsuarioModificacion,
+			s.ID_Batch,
+			s.ID_SourceSystem
+		);
 
 		SET @RowsAffected =@@ROWCOUNT
 
 		SELECT @MaxFechaEjecucion=MAX(MaxFechaEjecucion)
 		FROM(
-			SELECT MAX(FechaPrueba) as MaxFechaEjecucion
-			FROM FACT.Examen
+			SELECT MAX(Fecha_Orden) as MaxFechaEjecucion
+			FROM FACT.Orden
 			UNION
 			SELECT MAX(FechaModificacionSource)  as MaxFechaEjecucion
-			FROM FACT.Examen
+			FROM FACT.Orden
 		)AS A
 
 		UPDATE FactLog

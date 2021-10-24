@@ -404,6 +404,9 @@ GO
 	alter table Dimension.Cotizacion add NombreAseguradora [UDT_VarcharMediano]--80
 	alter table Dimension.Cotizacion add RowCreatedDate [UDT_DateTime]
 	alter table Dimension.Cotizacion add Activa [UDT_BIT]
+	--columnas scd tipo 2
+	alter table Dimension.Cotizacion add FechaInicioValidez [UDT_DateTime] not null default (getdate())
+	alter table Dimension.Cotizacion add FechaFinValidez [UDT_DateTime] null
 	--columnas de auditoria
 	alter table Dimension.Cotizacion add FechaCreacion [UDT_DateTime] not null default(getdate())
 	alter table Dimension.Cotizacion add UsuarioCreacion nvarchar(100) not null default(suser_name())
@@ -457,18 +460,20 @@ GO
 	alter table Dimension.StatusOrden  add UsuarioModificacion nvarchar(100) null
 	go
 
-		--Fact
+	--Fact
 	ALTER TABLE Fact.Orden ADD ID_Orden [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Cliente [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_Ciudad [UDT_PK]
 	ALTER TABLE Fact.Orden ADD ID_DetalleOrden [UDT_PK]
-	ALTER TABLE Fact.Orden ADD ID_Parte [UDT_PK]
+	ALTER TABLE Fact.Orden ADD ID_Parte [UDT_SPK]
 	ALTER TABLE Fact.Orden ADD ID_Descuento [UDT_PK]
 	ALTER TABLE Fact.Orden ADD VehiculoID [UDT_PK]
+	ALTER TABLE Fact.Orden ADD ID_StatusOrden [UDT_PK]
 	ALTER TABLE Fact.Orden ADD Total_Orden [UDT_Decimal12.2]
 	ALTER TABLE Fact.Orden ADD Fecha_Orden [UDT_DateTime]
 	ALTER TABLE Fact.Orden ADD NumeroOrden [UDT_VarcharCorto]
 	ALTER TABLE Fact.Orden ADD Cantidad int not null
+	alter table Fact.Orden add [FechaModificacionSource] DATETIME NULL
 	--columnas de auditoria
 	alter table Fact.Orden add FechaCreacion [UDT_DateTime] not null default(getdate())
 	alter table Fact.Orden add UsuarioCreacion nvarchar(100) not null default(suser_name())
