@@ -19,7 +19,7 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>+SYPVL8QTtE37i1RwFqzwa4EI8k=24/10/2021 10:52:1524/10/2021 10:52:15</TimeStamp>
+        <TimeStamp>+SYPVL8QTtE37i1RwFqzwa4EI8k=25/10/2021 10:36:4124/10/2021 10:52:15</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -33,63 +33,63 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>0DhhIEXQh8ugbzVXov7tXfGdnQk=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>0DhhIEXQh8ugbzVXov7tXfGdnQk=25/10/2021 10:36:4125/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Cotizacion</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>w5+mPSIUgzem2DonewzdvsqppHQ=24/10/2021 03:08:1124/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>yshpumRnpEacv6dAB1if4WpP21w=25/10/2021 11:00:3225/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Fecha</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>dRs5kCcFyO7SSH1DbHUilRrvvf8=24/10/2021 11:21:0224/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>dRs5kCcFyO7SSH1DbHUilRrvvf8=25/10/2021 10:36:4125/10/2021 10:32:22</TimeStamp>
         <ID>
           <String>Parte</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>38zAQI4TIxTPy/r8HqdGPIHl1vk=24/10/2021 10:53:0724/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>/lqQYfFY8sALDputTIv4JAgxlDk=25/10/2021 10:47:4825/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Cliente</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>uRRPSoJrWAa0ChfbkbFv+kdWgwo=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>uRRPSoJrWAa0ChfbkbFv+kdWgwo=25/10/2021 10:36:4125/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Status Orden</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>TIYMs+y2uqUCZ5WOX/gHcXuEV14=24/10/2021 11:21:0224/10/2021 10:53:07</TimeStamp>
+        <TimeStamp>TIYMs+y2uqUCZ5WOX/gHcXuEV14=25/10/2021 10:36:4125/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Vehiculo</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>EjC5AmVNFEJfzdU30S9zcxPDS7M=24/10/2021 10:53:0724/10/2021 10:53:07</TimeStamp>
+        <TimeStamp>kTQ0e7xsww+S3ivatvjWgxRx4Jc=25/10/2021 10:47:4825/10/2021 10:17:18</TimeStamp>
         <ID>
           <String>Descuento</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>kMfldjDKnnVOr23/gDJxjtl7Gig=24/10/2021 10:56:5824/10/2021 10:53:07</TimeStamp>
+        <TimeStamp>RVl0v15GRtKPz3yOPctcGrieXRI=25/10/2021 10:38:1325/10/2021 10:32:22</TimeStamp>
         <ID>
           <String>Geografia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>ePlRZC2ThAZnVbxjiGqIDdyQnes=24/10/2021 03:08:1124/10/2021 10:53:06Tqu1Pap7OHRcy5ul+KW/njVuoK0=24/10/2021 01:36:3324/10/2021 10:53:06</TimeStamp>
+        <TimeStamp>8YTHj6tvf/IZboVvItuQ4zrDVg8=25/10/2021 11:00:3225/10/2021 10:32:22Tqu1Pap7OHRcy5ul+KW/njVuoK0=25/10/2021 10:36:4125/10/2021 10:32:22</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -106,5 +106,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-10-24T21:08:32.713333Z</LastDeployed>
+  <LastDeployed>2021-10-26T05:00:36.983333Z</LastDeployed>
 </DeploymentSnapshot>
